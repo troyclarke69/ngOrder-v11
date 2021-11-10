@@ -2,9 +2,12 @@
 # https://ngorder-dev.netlify.app/
 
 - Points to wikivox.tk (domain no longer exists) + AWS deploy taken down
-- Switch to NODE + firebase (much like what was done for wikirepo)
 
-## TESTING LOCALLING REQUIRES wikivox-api (.net)
+## TESTING LOCALLY REQUIRES the WikiVox-Api project (.net)
+
+## TODO::::: - Switch to NODE Backend + firebase Auth ( ... much like what was done for wikirepo)
+
+
 
 
 
