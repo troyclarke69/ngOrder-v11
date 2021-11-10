@@ -1,0 +1,49 @@
+<div *ngIf="isLoading" class="relative">
+  <app-spinner></app-spinner>
+</div>
+
+<div class="section-container">
+    <h4>Orders</h4>
+    <button class="btn btn-primary">New</button>
+
+    <table class="table table-inverse table-custom">
+      <thead class="thead-light">
+        <tr>
+          <th>Id</th>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Subtotal</th>
+          <th>Freight</th>
+          <th>Total</th>
+
+        </tr>
+      </thead>
+      <tbody class="tbody-light">
+        <tr *ngFor="let o of orders">
+            <td><a routerLink='/order/{{ o.orderID }}' title="View Order">{{ o.orderID }}</a></td>
+            <td>{{ o.orderDate.substring(0,10) }}</td> 
+            <td><a routerLink='/customer/{{ o.customerID }}' title="View Customer">{{ o.customerID }}</a></td>  
+            <td>{{ o.shipCity }}</td> 
+            <td>{{ o.shipCountry }}</td> 
+            <td>{{ o.subTotal | currency }}</td>  
+            <td>{{ o.freight | currency }}</td>                
+            <td>{{ o.orderTotal | currency }}</td>                
+
+        </tr>                
+      </tbody>
+    </table>
+
+    <app-pagination
+      (goPage)="goToPage($event)"
+      (goPrev)="goToPrevious()"
+      (goNext)="goToNext()"
+      [page]="page"
+      [perPage]="limit"
+      [count]="total">
+    </app-pagination>
+
+</div>
+
+

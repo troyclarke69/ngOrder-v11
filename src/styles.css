@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    /* font-size: 62.5%; */
+    font-size: 100%;
+}
+
+body {
+    font-size: 1.5rem Roboto, Gotu, Helvetica, courier;
+    height: 100vh;
+    margin: 1rem;
+    padding: 2rem;
+    background-color: #d8d8d8;
+    color: black;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h4 {
+    color: white;
+}
+
+form {
+    color: white;
+}
+
+.tbody-light {
+    color: black;
+}
+
+tr :hover{
+    background-color: #d8d8d8;
+    color: black;
+}

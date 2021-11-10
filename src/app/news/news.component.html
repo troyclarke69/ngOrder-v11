@@ -1,0 +1,28 @@
+<div class="section-container">
+    <h2>Top Headlines</h2>
+
+    <table class="table table-inverse table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of data">
+
+          <td width="100px">
+              <img src="{{ s.urlToImage }}" width="140px" height="100px"> 
+          </td>
+          <td width="900px">
+            <h2><b>
+              <a href="{{ s.url }}" target='_blank'>{{ s.title }}</a>
+            </b></h2>
+            <p><em>{{ s.description }}</em></p>
+          </td>      
+        </tr>
+                 
+      </tbody>
+    </table>
+
+  </div>

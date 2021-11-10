@@ -1,0 +1,45 @@
+<div *ngIf="isLoading" class="relative">
+  <app-spinner></app-spinner>
+</div>
+<div class="section-container">
+    <h4>Products</h4>
+    <button class='btn btn-primary'>New</button>
+
+    <table class="table table-inverse table-custom">
+      <thead class="thead-light">
+        <tr>
+          <!-- <th>ProductId</th> -->
+          <th>Name</th>
+          <th>Qty/Unit</th>
+          <th>UnitPrice</th>
+          <th>Units/Order</th>
+          <th>Units/Stock</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="tbody-light">
+        <tr *ngFor="let p of products">
+            <!-- <td><a routerLink='/{{ d.id }}'>{{ d.productID }}</a></td>  -->
+            <!-- <td><a routerLink='/product-edit/{{d.id}}'>{{ d.productName }}</a></td> -->
+            <td>{{ p.productName }}</td>
+            <td>{{ p.quantityPerUnit }}</td>   
+            <td>{{ p.unitPrice | currency }}</td> 
+            <td>{{ p.unitsOnOrder }}</td>                 
+            <td>{{ p.unitsInStock }}</td> 
+            <td><a routerLink='/product-edit/{{p.id}}'>Edit</a></td>                
+
+        </tr>                
+      </tbody>
+    </table>
+
+    <app-pagination
+      (goPage)="goToPage($event)"
+      (goPrev)="goToPrevious()"
+      (goNext)="goToNext()"
+      [page]="page"
+      [perPage]="limit"
+      [count]="total">
+    </app-pagination>
+
+  </div>
+

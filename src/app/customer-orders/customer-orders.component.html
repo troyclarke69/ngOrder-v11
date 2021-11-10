@@ -1,0 +1,31 @@
+<div *ngIf="isLoading" class="relative">
+  <app-spinner></app-spinner>
+</div>
+<div class="section-container">
+    <h4>Orders</h4>
+
+    <!-- <button class="btn btn-primary">New</button> -->
+
+    <table class="table table-inverse table-custom">
+      <thead class="thead-light">
+        <tr>
+          <th>Id</th>
+          <th>Date</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody class="tbody-light">
+        <tr *ngFor="let o of order">
+            <td><a routerLink='/order/{{ o.orderID }}' title="View Order">{{ o.orderID }}</a></td>
+            <td>{{ o.orderDate.substring(0,10) }}</td>   
+            <td>{{ o.shipCity }}</td> 
+            <td>{{ o.shipCountry }}</td> 
+            <td>{{ o.orderTotal | currency }}</td>                
+
+        </tr>                
+      </tbody>
+    </table>
+  </div>
+

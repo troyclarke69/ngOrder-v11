@@ -1,0 +1,48 @@
+<div *ngIf="isLoading" class="relative">
+  <app-spinner></app-spinner>
+</div>
+<div class="section-container">
+  <div class="order-header tbody-light">
+    <b>Order {{ order['orderID'] }}</b>
+    <h6>Order Date: {{ order['orderDate'].substring(0,10) }}</h6>
+    <h6>Shipped Date: {{ order['shippedDate'].substring(0,10) }}</h6>
+    <hr />
+    <h6>Ordered by:</h6>
+    <h5>{{ order['customerData']['companyName'] }}</h5>
+    <h5>{{ order['customerData']['address'] }}</h5>
+    <h5>{{ order['customerData']['city'] }}</h5>
+    <h5>{{ order['customerData']['country'] }}</h5>
+    <hr />
+  </div>
+  <h6>Items Ordered</h6>
+
+  <table class="table table-custom">
+    <thead class="thead-light">
+      <tr>
+        <th>Id</th>
+        <th>Product</th>
+        <th>UnitPrice</th>
+        <th>Qty</th>
+        <th>Discount</th>
+        <th>Ext.</th>
+      </tr>
+    </thead>
+    <tbody class="tbody-light">
+      <tr *ngFor="let d of order['detailData']">
+          <td><a routerLink=''>{{ d['productID'] }}</a></td> 
+          <td>{{ d['productData']['productName'] }}</td> 
+          <td>{{ d['unitPrice'] | currency }}</td> 
+          <td>{{ d['quantity'] }}</td>
+          <td>{{ d['discount'] | number:'0.2-2' }}</td> 
+          <td>{{ d['extdPrice'] | currency }}</td>             
+      </tr>                
+    </tbody>
+  </table>
+  <hr />
+  
+  <div class="order-totals" style="float: right">
+    <h6>Subtotal: {{ order['subTotal'] | currency }}</h6>
+    <h6>Freight: {{ order['freight'] | currency }}</h6>
+    <h5>Order Total: {{ order['orderTotal'] | currency }}</h5>
+  </div>
+</div>

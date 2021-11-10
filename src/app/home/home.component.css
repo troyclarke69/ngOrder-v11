@@ -1,0 +1,9 @@
+li {
+    list-style-type: none;
+    font-size: 1rem;
+    padding: .25rem;
+}
+
+h2 {
+    font-size: 2rem;
+}

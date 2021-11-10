@@ -1,0 +1,39 @@
+<div *ngIf="isLoading" class="relative">
+  <app-spinner></app-spinner>
+</div>
+<div class="section-container">
+    <h4>Customers</h4>
+    <button class="btn btn-primary">New</button>
+
+    <table class="table table-inverse table-custom">
+      <thead class="thead-light">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Country</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="tbody-light">
+        <tr *ngFor="let c of customers">
+            <td><a routerLink='/customer-edit/{{ c.id }}' title="Edit">{{ c.customerID }}</a></td> 
+            <td>{{ c.companyName }}</td>
+            <td>{{ c.city }}</td>   
+            <td>{{ c.country }}</td> 
+            <td><a routerLink='/customer-orders/{{ c.customerID }}'>View Orders</a></td>                
+        </tr>                
+      </tbody>
+    </table>
+
+    <app-pagination
+      (goPage)="goToPage($event)"
+      (goPrev)="goToPrevious()"
+      (goNext)="goToNext()"
+      [page]="page"
+      [perPage]="limit"
+      [count]="total">
+    </app-pagination>
+
+
+  </div>
