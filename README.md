@@ -1,3 +1,13 @@
+# NOT CURRENTLY FUNCTIONING ON NETLIFY (still deployed as of 11-10-2021)::
+# https://ngorder-dev.netlify.app/
+
+- Points to wikivox.tk (domain no longer exists) + AWS deploy taken down
+- Switch to NODE + firebase (much like what was done for wikirepo)
+
+## TESTING LOCALLING REQUIRES wikivox-api (.net)
+
+
+
 # Upgrade from v9 to v11
 
 - uninstalled codelyzer
